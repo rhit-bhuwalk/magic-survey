@@ -3,19 +3,11 @@ import { existsSync, mkdirSync } from 'fs';
 import { writeFile, readFile } from 'fs/promises';
 import path from 'path';
 
-// Create a new chat and return its ID
+// Create a new chat and return its ID (without creating a file)
 export async function createChat(id?: string): Promise<string> {
   const chatId = id || generateId(); // use provided ID or generate a unique chat ID
-  const chatFile = getChatFile(chatId);
-  
-  try {
-    await writeFile(chatFile, '[]'); // create an empty chat file
-    console.log(`Created chat file: ${chatFile}`);
-    return chatId;
-  } catch (error) {
-    console.error('Error creating chat file:', error);
-    throw error;
-  }
+  console.log(`Created chat ID: ${chatId} (file will be created when first message is saved)`);
+  return chatId;
 }
 
 // Load chat messages by ID
@@ -45,7 +37,9 @@ export async function saveChat({
 }): Promise<void> {
   try {
     const content = JSON.stringify(messages, null, 2);
-    await writeFile(getChatFile(id), content);
+    const chatFile = getChatFile(id);
+    await writeFile(chatFile, content);
+    console.log(`Saved ${messages.length} messages to chat ${id}`);
   } catch (error) {
     console.error('Error saving chat:', error);
   }

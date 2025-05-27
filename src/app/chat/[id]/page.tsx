@@ -1,4 +1,4 @@
-import { loadChat, chatExists, createChat } from '@/lib/chat-store';
+import { loadChat, chatExists } from '@/lib/chat-store';
 import Chat from '@/components/chat';
 import { notFound } from 'next/navigation';
 
@@ -8,16 +8,9 @@ export default async function ChatPage(props: { params: Promise<{ id: string }> 
   // Check if chat exists first
   const exists = await chatExists(id);
   if (!exists) {
-    console.log(`Chat ${id} does not exist, creating new chat file`);
-    try {
-      // Create an empty chat file for this ID
-      await createChat(id);
-      console.log(`Successfully created chat file for ${id}`);
-      return <Chat id={id} initialMessages={[]} />;
-    } catch (error) {
-      console.error(`Error creating chat ${id}:`, error);
-      notFound();
-    }
+    console.log(`Chat ${id} does not exist, starting with empty messages`);
+    // No need to create a file - it will be created when first message is saved
+    return <Chat id={id} initialMessages={[]} />;
   }
   
   try {

@@ -1,0 +1,30 @@
+[
+  {
+    "role": "user",
+    "content": "the king",
+    "id": "u4OMsvKdaKDeaNoh",
+    "createdAt": "2025-05-27T05:11:01.130Z",
+    "parts": [
+      {
+        "type": "text",
+        "text": "the king"
+      }
+    ]
+  },
+  {
+    "role": "assistant",
+    "id": "msg-BcW1MPnqBJHcWw60BLJd1IMO",
+    "createdAt": "2025-05-27T05:11:03.631Z",
+    "content": "Hello! I understand you'd like help creating a customer feedback survey for \"the king\" - I assume this might be related to Burger King or another business with \"king\" in the name. To better assist you, could you please share the website or provide more details about what \"the king\" refers to? This will help me understand the product or service better.",
+    "toolInvocations": [],
+    "parts": [
+      {
+        "type": "step-start"
+      },
+      {
+        "type": "text",
+        "text": "Hello! I understand you'd like help creating a customer feedback survey for \"the king\" - I assume this might be related to Burger King or another business with \"king\" in the name. To better assist you, could you please share the website or provide more details about what \"the king\" refers to? This will help me understand the product or service better."
+      }
+    ]
+  }
+]
