@@ -1,0 +1,30 @@
+[
+  {
+    "role": "user",
+    "content": "i want to know ",
+    "id": "T5KbmDDNPEr9Qoif",
+    "createdAt": "2025-05-27T04:53:55.299Z",
+    "parts": [
+      {
+        "type": "text",
+        "text": "i want to know "
+      }
+    ]
+  },
+  {
+    "role": "assistant",
+    "id": "msg-unkzEZVZA1ZCCjtVCZmTQLZO",
+    "createdAt": "2025-05-27T04:53:58.690Z",
+    "content": "Hello! I'll help you gather requirements for your customer feedback survey. Let's start with understanding your product or service.\n\nDo you have a website I can look at to learn more about your business?",
+    "toolInvocations": [],
+    "parts": [
+      {
+        "type": "step-start"
+      },
+      {
+        "type": "text",
+        "text": "Hello! I'll help you gather requirements for your customer feedback survey. Let's start with understanding your product or service.\n\nDo you have a website I can look at to learn more about your business?"
+      }
+    ]
+  }
+]

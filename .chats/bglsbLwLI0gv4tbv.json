@@ -1,0 +1,30 @@
+[
+  {
+    "role": "user",
+    "content": "asdasd",
+    "id": "nEsU38mjTH0qxYwy",
+    "createdAt": "2025-05-27T04:50:37.684Z",
+    "parts": [
+      {
+        "type": "text",
+        "text": "asdasd"
+      }
+    ]
+  },
+  {
+    "role": "assistant",
+    "id": "msg-bpG0TsvbHsnmNRkp6nFwcvVG",
+    "createdAt": "2025-05-27T04:50:40.042Z",
+    "content": "Hello! I'm here to help you gather requirements for creating an effective customer feedback survey. To get started, could you tell me about the product or service you'd like to create a survey for? If you have a website, that would be helpful as well.",
+    "toolInvocations": [],
+    "parts": [
+      {
+        "type": "step-start"
+      },
+      {
+        "type": "text",
+        "text": "Hello! I'm here to help you gather requirements for creating an effective customer feedback survey. To get started, could you tell me about the product or service you'd like to create a survey for? If you have a website, that would be helpful as well."
+      }
+    ]
+  }
+]
