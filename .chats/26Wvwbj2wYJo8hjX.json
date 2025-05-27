@@ -1,0 +1,114 @@
+[
+  {
+    "role": "user",
+    "content": "hey there",
+    "id": "oDeLqWvNGHl0ovKK",
+    "createdAt": "2025-05-27T05:06:31.155Z",
+    "parts": [
+      {
+        "type": "text",
+        "text": "hey there"
+      }
+    ]
+  },
+  {
+    "id": "msg-tixDigwt9vCS7x8wpSrksphE",
+    "createdAt": "2025-05-27T05:06:32.591Z",
+    "role": "assistant",
+    "content": "Hello! I'm here to help gather requirements for your customer feedback survey. To get started, could you tell me about the product or service you'd like to create a survey for? If you have a website, that would be helpful to share as well.",
+    "parts": [
+      {
+        "type": "step-start"
+      },
+      {
+        "type": "text",
+        "text": "Hello! I'm here to help gather requirements for your customer feedback survey. To get started, could you tell me about the product or service you'd like to create a survey for? If you have a website, that would be helpful to share as well."
+      }
+    ],
+    "revisionId": "94cY6mtmYsMS8ADH"
+  },
+  {
+    "id": "2CCS9CTwc4IQ5h4o",
+    "createdAt": "2025-05-27T05:06:39.759Z",
+    "role": "user",
+    "content": "whats your name",
+    "parts": [
+      {
+        "type": "text",
+        "text": "whats your name"
+      }
+    ]
+  },
+  {
+    "id": "msg-9wlyYh1B7H0Ps8djEtUOOH8T",
+    "createdAt": "2025-05-27T05:06:40.463Z",
+    "role": "assistant",
+    "content": "I am an AI assistant focused on helping gather requirements for customer feedback surveys. I don't have a personal name, but I'm here to help you create an effective survey for your product or service. \n\nTo get started, could you tell me about the product or service you'd like to create a survey for?",
+    "parts": [
+      {
+        "type": "step-start"
+      },
+      {
+        "type": "text",
+        "text": "I am an AI assistant focused on helping gather requirements for customer feedback surveys. I don't have a personal name, but I'm here to help you create an effective survey for your product or service. \n\nTo get started, could you tell me about the product or service you'd like to create a survey for?"
+      }
+    ],
+    "revisionId": "jlGRAMKmQxY2XUCT"
+  },
+  {
+    "id": "J7w38lsf88tv9UDQ",
+    "createdAt": "2025-05-27T05:06:45.778Z",
+    "role": "user",
+    "content": "i dont want to tellyou",
+    "parts": [
+      {
+        "type": "text",
+        "text": "i dont want to tellyou"
+      }
+    ]
+  },
+  {
+    "id": "msg-l8FMawaRYF9Mu3ZFZqV5hvTp",
+    "createdAt": "2025-05-27T05:06:46.760Z",
+    "role": "assistant",
+    "content": "I understand you might be hesitant to share information. However, I can only help create an effective customer feedback survey if I understand some basic details about your product or service. Without this information, I won't be able to help develop relevant survey questions that will give you meaningful insights.\n\nWould you be willing to at least tell me what type of product or service you're looking to gather feedback about? It can be as general as you'd like to start with.",
+    "parts": [
+      {
+        "type": "step-start"
+      },
+      {
+        "type": "text",
+        "text": "I understand you might be hesitant to share information. However, I can only help create an effective customer feedback survey if I understand some basic details about your product or service. Without this information, I won't be able to help develop relevant survey questions that will give you meaningful insights.\n\nWould you be willing to at least tell me what type of product or service you're looking to gather feedback about? It can be as general as you'd like to start with."
+      }
+    ],
+    "revisionId": "7mrk0LUpeP04IOjk"
+  },
+  {
+    "id": "fRnFekXXjrfENmOZ",
+    "createdAt": "2025-05-27T05:06:53.069Z",
+    "role": "user",
+    "content": "sure lets begin",
+    "parts": [
+      {
+        "type": "text",
+        "text": "sure lets begin"
+      }
+    ]
+  },
+  {
+    "role": "assistant",
+    "id": "msg-0ycvFku1uOO1VLvFfuI9V6Zs",
+    "createdAt": "2025-05-27T05:06:54.277Z",
+    "content": "Great! Let's start with the basics. What type of product or service would you like to create a customer feedback survey for?",
+    "toolInvocations": [],
+    "parts": [
+      {
+        "type": "step-start"
+      },
+      {
+        "type": "text",
+        "text": "Great! Let's start with the basics. What type of product or service would you like to create a customer feedback survey for?"
+      }
+    ]
+  }
+]

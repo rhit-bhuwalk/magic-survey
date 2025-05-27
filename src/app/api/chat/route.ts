@@ -9,6 +9,11 @@ export async function POST(request: Request) {
   try {
     const { messages, id } = await request.json();
 
+    console.log(`=== Chat API called ===`);
+    console.log(`Chat ID: ${id}`);
+    console.log(`Raw messages count: ${messages.length}`);
+    console.log(`Messages:`, messages.map((m: { role: string; content: string }) => ({ role: m.role, content: m.content?.substring(0, 50) + '...' })));
+
     // Filter out empty messages that are used to trigger initial conversation
     const filteredMessages = messages.filter((message: { content: string }) => 
       message.content.trim() !== ''

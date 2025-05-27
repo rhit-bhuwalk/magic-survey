@@ -13,7 +13,6 @@ interface ChatProps {
 
 export default function Chat({ id, initialMessages = [], goal }: ChatProps) {
   const searchParams = useSearchParams();
-  const hasInitialized = React.useRef(false);
   const messagesEndRef = React.useRef<HTMLDivElement>(null);
   const [showSurveyButton, setShowSurveyButton] = React.useState(false);
   const [surveyButtonData, setSurveyButtonData] = React.useState<{
@@ -24,46 +23,39 @@ export default function Chat({ id, initialMessages = [], goal }: ChatProps) {
   // Get goal from props or URL params
   const effectiveGoal = goal || searchParams.get('goal');
   
-  // Track if we've already processed initial messages to prevent duplicates
-  const initialMessagesProcessed = React.useRef(false);
+  // Track if we've sent the initial goal message to prevent duplicates
+  const [hasInitializedWithGoal, setHasInitializedWithGoal] = React.useState(false);
+  const initialCheckDone = React.useRef(false);
+  const goalSent = React.useRef(false);
 
   const { messages, input, handleInputChange, handleSubmit, status, append } = useChat({
     api: '/api/chat',
-    id, // Pass the chat ID for persistence
+    id, // This is crucial - must be provided to prevent random ID generation
     initialMessages,
-    sendExtraMessageFields: true, // Send id and createdAt for each message
+    sendExtraMessageFields: true,
   });
 
-  // Handle initial messages and trigger AI responses
+  // Handle initial goal message - only run once when we have a goal and haven't initialized yet
   React.useEffect(() => {
-    if (hasInitialized.current || initialMessagesProcessed.current) return;
-    
-    // Add a small delay to prevent race conditions
-    const timer = setTimeout(() => {
-      // Check if the goal message already exists in initial messages
-      const goalAlreadyExists = effectiveGoal && initialMessages.some(
-        msg => msg.role === 'user' && msg.content === effectiveGoal
-      );
-      
-      // If we have a goal parameter and it's not already in the messages, send it as the first message
-      if (effectiveGoal && initialMessages.length === 0 && !goalAlreadyExists) {
-        append({ role: 'user', content: effectiveGoal });
-        hasInitialized.current = true;
-        initialMessagesProcessed.current = true;
-      } else if (initialMessages.length === 0) {
-        // Send an empty message to trigger the AI's initial greeting for new chats
-        append({ role: 'user', content: '' });
-        hasInitialized.current = true;
-        initialMessagesProcessed.current = true;
-      } else {
-        // For existing chats with messages, mark as initialized
-        hasInitialized.current = true;
-        initialMessagesProcessed.current = true;
-      }
-    }, 100);
+    // Only proceed if we have a goal, haven't initialized yet, and don't already have messages
+    if (!effectiveGoal || hasInitializedWithGoal || initialMessages.length > 0 || initialCheckDone.current || goalSent.current) {
+      return;
+    }
 
-    return () => clearTimeout(timer);
-  }, [append, effectiveGoal, initialMessages]);
+    // Mark that we've done the initial check
+    initialCheckDone.current = true;
+
+    // Check if the goal message already exists in current messages
+    const goalAlreadyExists = messages.some(
+      msg => msg.role === 'user' && msg.content === effectiveGoal
+    );
+    
+    if (!goalAlreadyExists) {
+      goalSent.current = true;
+      append({ role: 'user', content: effectiveGoal });
+      setHasInitializedWithGoal(true);
+    }
+  }, [effectiveGoal, hasInitializedWithGoal, initialMessages.length, append]);
 
   // Auto-scroll to bottom when messages change
   React.useEffect(() => {
