@@ -263,6 +263,13 @@ export default function Chat({ id, initialMessages = [], goal }: ChatProps) {
                   <div className="flex space-x-3">
                     <button
                       onClick={() => {
+                        // Pass the requirements data to the survey generation page
+                        const requirementsData = {
+                          requirements: surveyButtonData.requirements,
+                          chatId: id,
+                          messages: messages
+                        };
+                        localStorage.setItem('surveyRequirements', JSON.stringify(requirementsData));
                         window.location.href = '/survey-generation';
                       }}
                       className="flex-1 bg-gradient-to-r from-green-700 to-green-800 text-white font-semibold py-3 px-4 rounded-xl shadow-lg hover:shadow-xl transform transition-all hover:scale-105 animate-pulse"
